@@ -4,29 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Sirin+Stencil" rel="stylesheet">
   <script src="js/jquery.js"></script>
   <script src="js/main.js"></script>
-  <script src="https://use.fontawesome.com/972bbe220c.js"></script>
   <title>Tic Tac Toe</title>
 </head>
 <body>
   <h1>Let's Play Tic Tac Toe!</h1>
-  <div id="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea officia impedit dolor voluptatum aspernatur aliquam. Ab placeat animi amet autem perspiciatis, nostrum at itaque cumque! Aliquam nisi ipsam, temporibus expedita.</div>
-
-  <div id="board">
-    <div class="square" id="one"></div>
-    <div class="square" id="two"></div>
-    <div class="square" id="three"></div>
-    <div class="square" id="four"></div>
-    <div class="square" id="five"></div>
-    <div class="square" id="six"></div>
-    <div class="square" id="seven"></div>
-    <div class="square" id="eight"></div>
-    <div class="square" id="nine"></div>
+  <div id="intro-container">Challenge your friend and play the classic game of noughts and crosses.</div>
+  <div id="update-container"></div>
+  <table class="container" id="board">
+    <tr>
+      <td class="square" id="1" row="0" col="0"></td>
+      <td class="square" id="2" row="0" col="1"></td>
+      <td class="square" id="3" row="0" col="2"></td>
+    </tr>
+    <tr>
+      <td class="square" id="4" row="1" col="0"></td>
+      <td class="square" id="5" row="1" col="1"></td>
+      <td class="square" id="6" row="1" col="2"></td>
+    </tr>
+    <tr>
+      <td class="square" id="7" row="2" col="0"></td>
+      <td class="square" id="8" row="2" col="1"></td>
+      <td class="square" id="9" row="2" col="2"></td>
+    </tr>
+  </table>
   </div>
 
   <footer>Fun and games by H Chow 2017</footer>
 </body>
 </html>
+
+<!-- //html for icon1 <i class="fa fa-circle-o" aria-hidden="true"></i> -->
+<!-- //html for icon2 <i class="fa fa-times" aria-hidden="true"></i> -->
