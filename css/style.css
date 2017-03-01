@@ -73,12 +73,12 @@ tr .row {
   border: 1px solid gray;
   max-height: 160px;
   height: 100vw;
-  max-width: 700px;
+  max-width: 680px;
   width: 100vw;
   margin: 10px auto;
 }
 
-tr .token-row {
+tr.token-row {
   height: 90%;
   margin: 0 auto;
 }
@@ -86,8 +86,6 @@ tr .token-row {
 .token {
   width: 22.5%;
   height: 100%;
-  margin: 15px;
-  padding: 5px;
 }
 
 .token-one {

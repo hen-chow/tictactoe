@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var ticTacToe = {
+  var ticTacToe = {
 
     board: [
       [null, null, null],
@@ -11,6 +11,8 @@ var ticTacToe = {
     player: 0,
     turnsCounter: 0,
     currentPlayerToken: 0,
+    player0Token: "",
+    player1Token: "",
 
     recordEntries: function(player, x, y) {
       board = ticTacToe.board;
@@ -61,18 +63,20 @@ var ticTacToe = {
 
   var addToken = function (square, token) {
     if (ticTacToe.currentPlayerToken === 0) {
-      var token = "token-one";
+      var token = ticTacToe.player0Token;
       $(square).addClass(token);
 
     } else {
-      var token = "token-two";
+      var token = ticTacToe.player1Token;
+      console.log(ticTacToe.player1Token);
       $(square).addClass(token);
     }
   };
 
-  var resetBoard = function() {
-    $("#board td").removeClass("token-one token-two");
+  var reset = function() {
+    $("#board td").removeClass("token-one token-two token-three token-four");
     $("#update-container").html("");
+    $(".token").css("opacity", "1");
 
     for (var i = 0; i < ticTacToe.board.length; i++){
 
@@ -80,9 +84,28 @@ var ticTacToe = {
 
         ticTacToe.board[i][j] = null;
       }
-    };
-  }
+    }
+  };
 
+  $("#tokens td").on("click", function() {
+    var token = $(this).attr("class").split(" ").pop();
+
+    if (ticTacToe.player === 0) {
+      ticTacToe.player0Token = token;
+      ticTacToe.player = 1 - ticTacToe.player;
+      $(".token." + token).css("opacity", "0.5");
+      $("#token-container h3").text("Player " + (ticTacToe.player + 1)+ ", select your icon.");
+
+
+    } else {
+      ticTacToe.player1Token = token;
+      ticTacToe.player = 1 - ticTacToe.player;
+      $(".token." + token).css("opacity", "0.5");
+      $("#token-container h3").text("Time to play!");
+
+    }
+
+  });
 
   $("#board td").on("click", function() {
 
@@ -105,21 +128,28 @@ var ticTacToe = {
       addToken(square, ticTacToe.currentPlayerToken);
 
       if (ticTacToe.winnerCheck() === true) {
-        $("#update-container").css("color", "red").html("<h3>Player " + (ticTacToe.player + 1) + " is the winner!</h3>");
 
-        setTimeout(resetBoard, 4000);
+        setTimeout(function () {
+          $("#update-container").css("color", "red").html("<h3>Player " + (ticTacToe.player + 1) + " is the winner!</h3>");
+        }, 400);
+
+        setTimeout(reset, 4000);
 
       } else if (ticTacToe.turnsCounter === 9){
 
-        $("#update-container").html("<h3>Game Over! It's a draw. Play again?</h3>");
+        setTimeout(function() {
+          $("#update-container").html("<h3>Game Over! It's a draw. Play again?</h3>");
+        }, 400);
 
-        setTimeout(resetBoard, 4000);
+        setTimeout(reset, 4000);
 
       } else {
 
         ticTacToe.swapTurns();
 
-        $("#update-container").html("<h3>It's Player " + (ticTacToe.player + 1) + "'s turn!</h3>");
+        setTimeout(function () {
+          $("#update-container").html("<h3>It's Player " + (ticTacToe.player + 1) + "'s turn!</h3>");
+        }, 400);
 
       };
 
