@@ -11,8 +11,8 @@ $(document).ready(function(){
     player: 0,
     turnsCounter: 0,
     currentPlayerToken: 0,
-    player0Token: "",
-    player1Token: "",
+    player0Token: "token-one",
+    player1Token: "token-two",
 
     recordEntries: function(player, x, y) {
       board = ticTacToe.board;
@@ -68,9 +68,15 @@ $(document).ready(function(){
 
     } else {
       var token = ticTacToe.player1Token;
-      console.log(ticTacToe.player1Token);
       $(square).addClass(token);
     }
+  };
+
+  var tokenCheck = function() {
+    if (ticTacToe.player0Token === "" || ticTacToe.player1Token === "") {
+      return false;
+    }
+    return true;
   };
 
   var reset = function() {
@@ -92,6 +98,7 @@ $(document).ready(function(){
 
     if (ticTacToe.player === 0) {
       ticTacToe.player0Token = token;
+      console.log(ticTacToe.player0Token);
       ticTacToe.player = 1 - ticTacToe.player;
       $(".token." + token).css("opacity", "0.5");
       $("#token-container h3").text("Player " + (ticTacToe.player + 1)+ ", select your icon.");
@@ -113,7 +120,7 @@ $(document).ready(function(){
     var col = parseInt($(this).attr("col"));
     var square = $(this);
 
-    makeMove(row, col, square)
+      makeMove(row, col, square);
 
   });
 
@@ -158,6 +165,37 @@ $(document).ready(function(){
       $("#update-container").html("<h3>Spot taken. Pick another spot on the board.</h3>")
 
     };
+  }
+
+  var winConfetti = function () {
+
+    var $canvas = $("#canvas");
+    var ctx = $canvas.getContext("2d");
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    $canvas.width = width;
+    $canvas.height = height;
+
+    var max = 100; //max number of confetti
+    var confetti = [];
+
+    var random = function(number) {
+      return Math.floor(Math.random() * number)
+    }
+
+    for (var i = 0; i < max; i++) {
+      confetti.push({
+        color: "rgba( " + random(255) + ", " + random(255) + ", " + random(255) + ", " + random(1) + " )",
+        x: random(width),
+        y: random(height),
+        
+
+
+      })
+    }
+
   }
 
 });
