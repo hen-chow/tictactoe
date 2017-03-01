@@ -4,13 +4,24 @@
   padding:0;
 }
 
+#intro-container, #update-container {
+  max-width: 750px;
+  width: 100vw;
+  margin: 25px auto 20px auto;
+}
+
 #intro-container {
-  width: 1000px;
-  margin: 25px auto 10px auto;
+  display: none;
 }
 
 .container {
   margin: 10px auto;
+}
+
+#token-container {
+  background-color: lightgray;
+  margin: 10px auto;
+  padding: 20px;
 }
 
 body {
@@ -22,7 +33,7 @@ body {
 
 h1 {
   font-family: 'Sirin Stencil', cursive;
-  font-size: 3.5em;
+  font-size: 2em;
   color: black;
   text-align: center;
 }
@@ -35,9 +46,11 @@ h3 {
 }
 
 #board {
-  border: 2px solid black;
-  height: 1000px;
-  width: 1000px;
+  border: 4px solid black;
+  height: 100vw; /*for view width*/
+  max-height: 700px;
+  width: 100vw;
+  max-width: 700px;
   margin: 20px auto;
 }
 
@@ -51,9 +64,30 @@ h3 {
   background: white;
 }
 
-tr {
+tr .row {
   height: 33.3%;
   margin: 0 auto;
+}
+
+#tokens {
+  border: 1px solid gray;
+  max-height: 160px;
+  height: 100vw;
+  max-width: 700px;
+  width: 100vw;
+  margin: 10px auto;
+}
+
+tr .token-row {
+  height: 90%;
+  margin: 0 auto;
+}
+
+.token {
+  width: 22.5%;
+  height: 100%;
+  margin: 15px;
+  padding: 5px;
 }
 
 .token-one {
@@ -74,6 +108,24 @@ tr {
   transition: all 0.5s;
 }
 
+.token-three {
+  background: url(../images/duck-312100_640.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: red;
+  transition: all 0.5s;
+}
+
+.token-four {
+  background: url(../images/Questionmark.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: orange;
+  transition: all 0.5s;
+}
+
 footer {
   background: black;
   color: gray;
@@ -83,52 +135,32 @@ footer {
   font-size: 0.75em;
 }
 
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5em;
+  }
+
+  #intro-container {
+    display:inline;
+  }
+}
+
+
 /*@media (min-width: 768px) {
   .container {
     width: 750px;
   }
 
   #board {
-    height: 90%;
-    width: 90%;
-  }
-
-  h1 {
-    font-size: 2.5em;
-  }
-
-  #intro-container {
-    display: none;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-
-  #board {
-    height: 90%;
-    width: 90%;
-  }
-
-  h1 {
-    font-size: 2.5em;
-  }
-
-  #intro-container {
-    display: none;
-  }
-
-}
-/*@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-
-  /*#board {
     height: 100%;
     width: 100%;
-  }*/
+  }
 
-}
+  h1 {
+    font-size: 2em;
+  }
+
+  #intro-container {
+    display: none;
+  }
+}*/
