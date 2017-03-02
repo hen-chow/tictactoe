@@ -69,6 +69,15 @@ tr .row {
   margin: 0 auto;
 }
 
+#scoreboard {
+  max-height: 170px;
+  height: 100vw;
+  max-width: 680px;
+  width: 100vw;
+  display: none;
+  padding: 2px;
+}
+
 #tokens {
   border: 1px solid gray;
   max-height: 160px;
@@ -123,6 +132,12 @@ tr.token-row {
   background-color: orange;
   transition: all 0.5s;
 }
+.confetti {
+  height:20px;
+  width: 10px;
+  background: blue;
+  display: inline-block;
+}
 
 footer {
   background: black;
@@ -142,23 +157,3 @@ footer {
     display:inline;
   }
 }
-
-
-/*@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-
-  #board {
-    height: 100%;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  #intro-container {
-    display: none;
-  }
-}*/
