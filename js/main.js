@@ -31,7 +31,7 @@ $(document).ready(function(){
       return false;
     },
 
-    winnerCheck: function () {
+    winnerCheck: function() {
       board = ticTacToe.board;
       for (var i = 0; i < board.length; i++) {
         if(board[i][0] != null && board[i][0] === board[i][1] && board[i][0] === board[i][2]){
@@ -47,23 +47,20 @@ $(document).ready(function(){
       if(board [0][2] != null && board[0][2] === board[1][1] && board[0][2] === board[2][0]){
           return true;
         }
-
       return false;
-
     },
 
-    swapTurns: function () {
+    swapTurns: function() {
       ticTacToe.player = 1 - ticTacToe.player;
       ticTacToe.currentPlayerToken = 1 - ticTacToe.currentPlayerToken;
       return this.player, this.currentPlayerToken;
     }
   };
 
-  var addToken = function (square, token) {
+  var addToken = function(square, token) {
     if (ticTacToe.currentPlayerToken === 0) {
       var token = ticTacToe.player0Token;
       $(square).addClass(token);
-
     } else {
       var token = ticTacToe.player1Token;
       $(square).addClass(token);
@@ -81,6 +78,7 @@ $(document).ready(function(){
     $("#board td").removeClass("token-one token-two token-three token-four");
     $("#update-container").html("");
     $(".token").css("opacity", "1");
+    boardOff = false;
     ticTacToe.player = 0;
     ticTacToe.turnsCounter = 0;
     ticTacToe.currentPlayerToken = 0;
@@ -117,25 +115,25 @@ $(document).ready(function(){
       ticTacToe.player = 1 - ticTacToe.player;
       $(".token." + token).css("opacity", "0.5");
       $("#token-container h3").text("Player " + (ticTacToe.player + 1)+ ", select your icon.");
-
-
     } else {
       ticTacToe.player1Token = token;
       ticTacToe.player = 1 - ticTacToe.player;
       $(".token." + token).css("opacity", "0.5");
       $("#token-container h3").text("Time to play!");
-
     }
-
   });
+
+  var boardOff = false; //variable to switch off board function once game is over
+
 //board playing event handler
   $("#board td").on("click", function() {
     var row = parseInt($(this).attr("row"));
     var col = parseInt($(this).attr("col"));
     var square = $(this);
 
+    if (boardOff === false) {
       makeMove(row, col, square);
-
+    }
   });
 
   var makeMove = function(row, col, square){
@@ -145,6 +143,7 @@ $(document).ready(function(){
       addToken(square, ticTacToe.currentPlayerToken);
 
       if (ticTacToe.winnerCheck() === true) {
+        boardOff = true;
         ticTacToe.gamesCounter +=1;
         winCounter();
 
@@ -172,30 +171,8 @@ $(document).ready(function(){
       $("#update-container").html("<h3>Spot taken. Pick another spot on the board.</h3>")
     };
   }
-//AI version
-  // var makeMove = function(row, col, square){
-  //   if (ticTacToe.boardCheck(row, col) === true) {
-  //     ticTacToe.recordEntries(ticTacToe.player, row, col);
-  //     ticTacToe.turnsCounter += 1;
-  //     addToken(square, ticTacToe.currentPlayerToken);
-  //
-  //     if (ticTacToe.winnerCheck() === true) {
-  //       ticTacToe.gamesCounter +=1;
-  //       winCounter();
-  //
-  //       setTimeout(function () {
-  //         $("#update-container").html("<h3>Player " + (ticTacToe.player + 1) + " is the winner!</h3>");
-  //       }, 400);
-  //       setTimeout(reset, 4000);
-  //       scoreboardUpdate();
-  //
-  //     } else if (ticTacToe.turnsCounter === 9){
-  //       ticTacToe.gamesCounter +=1;
-  //       setTimeout(function() {
-  //         $("#update-container").html("<h3>Game Over! It's a draw. Play again?</h3>");
-  //       }, 400);
-  //       setTimeout(reset, 4000);
-  //
+});
+
   //     } else {
   //       ticTacToe.swapTurns();
   //       //AI makes a move
@@ -246,33 +223,3 @@ $(document).ready(function(){
   //     }
   //   }
   // };
-
-// var winConfetti = {
-//     max: 100, //max number of confetti
-//     confettis: [],
-//
-//     random: function(number) {
-//       return Math.floor(Math.random() * number)
-//     },
-//
-//     makeConfetti: function() {
-//
-//       if (winConfetti.confettis.length < max) {
-//         var confetti = $("<div class='confetti'></div>");
-//         confetti.css ({
-//           background: "rgba( " + random(255) + ", " + random(255) + ", " + random(255) + ", " + random(1) + " )",
-//           top: random(window.innerHeight),
-//           left: random(window.innerWidth),
-//           position: "absolute"
-//         });
-//         winConfetti.confettis.push(confetti);
-//         $("body").append(confetti);
-//         return confetti;
-//       }
-//       else //update else statement to clearInterval
-//     },
-//
-//     moveConfetti: function
-//   }
-
-});
