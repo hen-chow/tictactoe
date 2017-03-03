@@ -4,6 +4,10 @@
   padding:0;
 }
 
+header {
+  height: 80px;
+}
+
 #intro-container, #update-container {
   max-width: 600px;
   width: 100vw;
@@ -166,6 +170,10 @@ footer {
 }
 
 @media (min-width: 768px) {
+  header {
+    height: 160px;
+  }
+
   h1 {
     font-size: 3.5em;
   }
