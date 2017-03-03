@@ -18,10 +18,30 @@
   margin: 10px auto;
 }
 
-#token-container {
+#token-container, #name-container {
   background-color: lightgray;
-  margin: 10px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+#name-container {
+  margin-top: 10px;
+}
+
+.name {
+  display: inline-block;
+  font-size: 0.8em;
+  margin: 5px;
+}
+
+input {
+  height: 30px;
+  width: 220px;
+  font-size: 0.8em;
+}
+
+::-webkit-input-placeholder {
+  font-size: 15px;
 }
 
 body {
@@ -41,7 +61,7 @@ h1 {
 h3 {
   font-family: 'Sirin Stencil', cursive;
   font-style: italic;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -93,7 +113,6 @@ tr .row {
 
 tr.token-row {
   height: 90%;
-  margin: 0 auto;
 }
 
 .token {
@@ -149,6 +168,18 @@ footer {
 @media (min-width: 768px) {
   h1 {
     font-size: 3.5em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+
+  .name{
+    font-size: 1em;
+  }
+
+  input {
+    width: 250px;
   }
 
   #intro-container {
