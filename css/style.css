@@ -5,7 +5,40 @@
 }
 
 header {
+  height: 120px;
+}
+
+#title {
   height: 80px;
+}
+
+i.fa-volume-off {
+  font-size: 1.25em;
+  float: right;
+  margin-right: 15px;
+  margin-top: 5px;
+  color: gray;
+}
+
+button {
+  color: gray;
+  border: 2px solid gray;
+  background-color: yellow;
+  border-radius: 5px;
+  padding: 4px 25px;
+  font-size: 0.75em;
+  font-family: 'Sirin Stencil', cursive;
+}
+
+#buttons {
+  display: inline;
+  float: left;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+#top-container {
+  height: 50px;
 }
 
 #intro-container, #update-container {
@@ -45,6 +78,18 @@ input {
 }
 
 ::-webkit-input-placeholder {
+  font-size: 15px;
+}
+
+::-moz-input-placeholder {
+  font-size: 15px;
+}
+
+:-ms-input-placeholder {
+  font-size: 15px;
+}
+
+:-moz-input-placeholder {
   font-size: 15px;
 }
 
@@ -171,8 +216,15 @@ footer {
 
 @media (min-width: 768px) {
   header {
-    height: 160px;
+    height: 190px;
   }
+
+  i.fa-volume-off {
+    font-size: 1.75em;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+
 
   h1 {
     font-size: 3.5em;

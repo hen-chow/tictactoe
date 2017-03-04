@@ -6,12 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Sirin+Stencil" rel="stylesheet">
+  <script src="https://use.fontawesome.com/972bbe220c.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/main.js"></script>
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  <header><h1>Let's Play Tic Tac Toe!</h1></header>
+  <header>
+    <div id="top-container">
+      <div id="audio">
+        <i class="fa fa-volume-off" aria-hidden="true"></i>
+        <audio autoplay loop>
+          <source src="02 Sexy Boy.m4a" type="audio/mpeg">
+        </audio>
+      </div>
+      <div id="buttons">
+        <button id="new-game">New Game</button>
+        <button id="new-players">New Players</button>
+      </div>
+    </div>
+    <div id="title"><h1>Tic Tac Toe!</h1></div>
+  </header>
     <div id="intro-container">Challenge your friend and play the classic game of noughts and crosses.</div>
   <div id="name-container">
     <h3>Enter Your Name</h3>
@@ -53,9 +68,6 @@
   </table>
   <div id="scoreboard">
   </div>
-  <audio autoplay loop>
-    <source src="02 Sexy Boy.m4a" type="audio/mpeg">
-  </audio>
   <footer>Fun and games by H Chow 2017</footer>
 </body>
 </html>

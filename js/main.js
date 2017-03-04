@@ -83,6 +83,8 @@ $(document).ready(function(){
     $("#board td").removeClass("token-one token-two token-three token-four");
     $("#update-container").html("");
     $(".token").css("opacity", "1");
+    $("#player1Name, #player2Name").val("");
+    $("#name-container > div, #name-container > h3").show();
     boardOff = false;
     ticTacToe.player = 0;
     ticTacToe.turnsCounter = 0;
@@ -162,7 +164,14 @@ $(document).ready(function(){
       $("#update-container").html("<h3>Spot taken. Pick another spot on the board.</h3>")
     };
   }
-
+  //audio volume event listener
+  $("i.fa-volume-off").on("click", function() {
+    if ($("audio").prop("muted") === true){
+      $("audio").prop("muted", false);
+    } else {
+      $("audio").prop("muted", true);
+    }
+  })
   //enter key event listener/handler
   $(".name input").keypress(function(e){
     // var keyPressed = e.keyCode || e.which;
@@ -171,9 +180,11 @@ $(document).ready(function(){
       if (id === "player1Name") {
         var input = $("#" + id).val();
         ticTacToe.player1Name = input;
+        $("#name-container > div:first").hide();
       } else if (id === "player2Name") {
         var input = $("#" + id).val();
         ticTacToe.player2Name = input;
+        $("#name-container > div:last, #name-container > h3").hide();
       }
     }
   })
