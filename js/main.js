@@ -180,18 +180,18 @@ $(document).ready(function(){
 
   //icon select event handler
   $("#tokens td").on("click", function() {
-    var token = $(this).attr("class").split(" ").pop();
+    var token = $(this).attr("class");
     var player = ticTacToe.player;
 
     if (player === 0) {
       ticTacToe.player0Token = token;
       ticTacToe.player = 1 - ticTacToe.player;
-      $(".token." + token).css("opacity", "0.5");
+      $("." + token).css("opacity", "0.5");
       $("#token-container h3").text(ticTacToe.player2Name + ", select your icon.");
     } else {
       ticTacToe.player1Token = token;
       ticTacToe.player = 1 - ticTacToe.player;
-      $(".token." + token).css("opacity", "0.5");
+      $("." + token).css("opacity", "0.5");
       $("#token-container h3").text("Time to play!");
     }
   });

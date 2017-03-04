@@ -119,7 +119,7 @@ tr.token-row {
   height: 90%;
 }
 
-.token {
+.token-row > td {
   width: 22.5%;
   height: 100%;
 }
