@@ -82,7 +82,7 @@ $(document).ready(function(){
 
     $("#board td").removeClass("token-one token-two token-three token-four");
     $("#update-container").html("");
-    $(".token").css("opacity", "1");
+    $(".token-row > td").css("opacity", "1");
     $("#player1Name, #player2Name").val("");
     $("#name-container > div, #name-container > h3").show();
     boardOff = false;
@@ -91,6 +91,23 @@ $(document).ready(function(){
     ticTacToe.currentPlayerToken = 0;
     ticTacToe.player0Token = "token-one";
     ticTacToe.player1Token = "token-two";
+
+    for (var i = 0; i < board.length; i++){
+      for (var j = 0; j < board[i].length; j++){
+        board[i][j] = null;
+      }
+    }
+  };
+
+  var newGame = function() {
+    var board = ticTacToe.board;
+
+    $("#board td").removeClass("token-one token-two token-three token-four");
+    $("#update-container").html("");
+    boardOff = false;
+    ticTacToe.player = 0;
+    ticTacToe.turnsCounter = 0;
+    ticTacToe.currentPlayerToken = 0;
 
     for (var i = 0; i < board.length; i++){
       for (var j = 0; j < board[i].length; j++){
@@ -172,6 +189,12 @@ $(document).ready(function(){
       $("audio").prop("muted", true);
     }
   })
+  //new game button event listener
+  $("#new-game").on("click", newGame);
+
+  //new players button event listener
+  $("#new-players").on("click", reset);
+
   //enter key event listener/handler
   $(".name input").keypress(function(e){
     // var keyPressed = e.keyCode || e.which;
