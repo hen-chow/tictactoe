@@ -29,5 +29,7 @@
 - Icon selection for each player
 - Board auto-reset once game is over
 - Multiple games counter
+- Select to start new game (whilst keeping existing players info) or new game with new players
+- Select to switch off audio for those who prefer a more quiet experience
 
 ### Game URL: [link for game](https://hen-chow.github.io/tictactoe/)

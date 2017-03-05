@@ -29,16 +29,16 @@
     <div id="title"><h1>Tic Tac Toe!</h1></div>
   </header>
     <div id="intro-container">Challenge your friend and play the classic game of noughts and crosses.</div>
-  <div id="name-container">
+  <div id="name-container"> <!-- player names input fields -->
     <h3>Enter Your Name</h3>
     <div class="name">Player 1:
-      <input id= "player1Name" type="text" placeholder="Enter your name"></input>
+      <input id= "player0Name" type="text" placeholder="Enter your name"></input>
     </div>
     <div class="name">Player 2:
-      <input id= "player2Name" type="text" placeholder="Enter your name"></input>
+      <input id= "player1Name" type="text" placeholder="Enter your name"></input>
     </div>
   </div>
-  <div id="token-container">
+  <div id="token-container"> <!-- for icon selection -->
     <h3>Select Your Icon</h3>
     <table id="tokens">
       <tr class="token-row">
@@ -49,8 +49,8 @@
       </tr>
     </table>
   </div>
-  <div id="update-container"></div>
-  <table class="container" id="board">
+  <div id="update-container"></div> <!-- used to feature prompts for each player and announce winner -->
+  <table class="container" id="board"> <!-- game board layout -->
     <tr class="row">
       <td class="square" id="1" row="0" col="0"></td>
       <td class="square" id="2" row="0" col="1"></td>
@@ -67,7 +67,7 @@
       <td class="square" id="9" row="2" col="2"></td>
     </tr>
   </table>
-  <div id="scoreboard">
+  <div id="scoreboard">  
   </div>
   <footer>Fun and games by H Chow 2017</footer>
 </body>
