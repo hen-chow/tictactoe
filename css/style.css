@@ -205,6 +205,14 @@ tr.token-row {
   transition: all 0.5s;
 }
 
+.confetti {
+  height:20px;
+  width: 10px;
+  background: blue;
+  display: inline-block;
+  /*z-index: -1;*/
+}
+
 footer {
   background: black;
   color: gray;
