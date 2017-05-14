@@ -177,7 +177,6 @@ $(document).ready(function(){
       }
     }
   })
-
   //icon select event handler
   $("#tokens td").on("click", function() {
     var token = $(this).attr("class").split(" ").pop();
