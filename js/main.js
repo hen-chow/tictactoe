@@ -140,13 +140,13 @@ $(document).ready(function(){
   var boardOff = false; // variable to switch off board function once game is over
 
 
-  var confettiMachine = function() { //confetti and win link
-    if (ticTacToe.winnerCheck()) {
-      setInterval(makeConfetti, 50); setInterval(moveConfettis, 10); //confetti effect
-    } else {
-      clearInterval(confettiMachine);
-    }
-  }
+  // var confettiMachine = function() { //confetti and win link
+  //   if (ticTacToe.winnerCheck()) {
+  //     setInterval(makeConfetti, 50); setInterval(moveConfettis, 10); //confetti effect
+  //   } else {
+  //     clearInterval(confettiMachine);
+  //   }
+  // }
 
   var makeMove = function(row, col, square){ //function to actually make a move on the board
     if (ticTacToe.boardCheck(row, col) === true) {
@@ -156,7 +156,7 @@ $(document).ready(function(){
 
       if (ticTacToe.winnerCheck() === true) {
         boardOff = true;
-        confettiMachine();
+        // confettiMachine();
         ticTacToe.gamesCounter +=1;
         winCounter();
 
@@ -253,52 +253,52 @@ $(document).ready(function(){
     }
   });
 //confetti effect for the winner
-  var max = 100; //max number of confetti
-  var confettis = [];
+  // var max = 100; //max number of confetti
+  // var confettis = [];
+  //
+  // var random = function(number) {
+  //   return Math.round(Math.random() * number)
+  // };
+  //
+  // var makeConfetti = function() {
+  //
+  //   if (confettis.length < max) {
+  //     var confetti = $("<div class='confetti'></div>");
+  //     confetti.css ({
+  //       background: "rgba( " + random(255) + ", " + random(255) + ", " + random(255) + ", " + random(1) + " )",
+  //       top: random(window.innerHeight),
+  //       left: random(window.innerWidth),
+  //       position: "absolute",
+  //       transform: "skew(" + random(40) + "deg)"
+  //     });
+  //     confettis.push(confetti);
+  //     $(".container").append(confetti);
+  //     return confetti;
+  //   }
+  //   else {
+  //     clearInterval(confettiMachine);
+  //   }
+  // }
 
-  var random = function(number) {
-    return Math.round(Math.random() * number)
-  };
-
-  var makeConfetti = function() {
-
-    if (confettis.length < max) {
-      var confetti = $("<div class='confetti'></div>");
-      confetti.css ({
-        background: "rgba( " + random(255) + ", " + random(255) + ", " + random(255) + ", " + random(1) + " )",
-        top: random(window.innerHeight),
-        left: random(window.innerWidth),
-        position: "absolute",
-        transform: "skew(" + random(40) + "deg)"
-      });
-      confettis.push(confetti);
-      $(".container").append(confetti);
-      return confetti;
-    }
-    else {
-      clearInterval(confettiMachine);
-    }
-  }
-
-  var moveConfetti = function (confetti) {
-    var x = parseInt(confetti.css("left"));
-    var y = parseInt(confetti.css("top"));
-    var angle = 20;
-
-     confetti.animate ({
-      left: x + Math.sin(angle) + "px",
-      top: y + Math.cos(angle) + "px",
-      backgroundColor: "rgba( " + random(255) + ", " + random(255) + ", " + random(255) + ", " + random(1) + " )",
-    })
-  }
-
-  var moveConfettis = function () {
-    for (var i = 0; i < confettis.length; i++) {
-      moveConfetti(confettis[i])
-    }
-  }
-  var confettiMachine = function() {
-    setInterval(makeConfetti, 50); setInterval(moveConfettis, 10); //confetti effect
-  }
+  // var moveConfetti = function (confetti) {
+  //   var x = parseInt(confetti.css("left"));
+  //   var y = parseInt(confetti.css("top"));
+  //   var angle = 20;
+  //
+  //    confetti.animate ({
+  //     left: x + Math.sin(angle) + "px",
+  //     top: y + Math.cos(angle) + "px",
+  //     backgroundColor: "rgba( " + random(255) + ", " + random(255) + ", " + random(255) + ", " + random(1) + " )",
+  //   })
+  // }
+  //
+  // var moveConfettis = function () {
+  //   for (var i = 0; i < confettis.length; i++) {
+  //     moveConfetti(confettis[i])
+  //   }
+  // }
+  // var confettiMachine = function() {
+  //   setInterval(makeConfetti, 50); setInterval(moveConfettis, 10); //confetti effect
+  // }
 
 });
